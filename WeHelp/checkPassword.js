@@ -23,7 +23,6 @@
     @param s:{String}
     @return :{Boolean}
 */
-
 function checkPassword(s){
     let result =false;
     if(s.length<=7||s.length>=17){
@@ -47,29 +46,32 @@ function checkString(charArr)
         {
             hasCapital = true;
         }
-        if(charArr[i]>='a'&&charArr[i]<='z')
+        else if(charArr[i]>='a'&&charArr[i]<='z')
         {
             hasLowerCase = true;
         }
-        if(charArr[i]>='0'&&charArr[i]<='9')
+        else if(charArr[i]>='0'&&charArr[i]<='9')
         {
             hasNumber = true;
         }
-        switch(charArr[i])
+        else if(charArr[i]=='!'||
+        charArr[i]=='@'||
+        charArr[i]=='#'||
+        charArr[i]=='$'||
+        charArr[i]=='%')
         {
-            case '!':
-            case '@':
-            case '#':
-            case '$':
-            case '%':
-                hasSpecial = true;
-                break;
+            hasSpecial = true;
+        }
+        else
+        {
+            return false;   
         }
     }
     if(hasCapital&&
     hasLowerCase&&
     hasNumber&&
-    hasSpecial)
+    hasSpecial
+    )
     {
         return true;
     }
