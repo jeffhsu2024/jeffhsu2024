@@ -70,8 +70,7 @@ function checkString(charArr)
     if(hasCapital&&
     hasLowerCase&&
     hasNumber&&
-    hasSpecial
-    )
+    hasSpecial)
     {
         return true;
     }
